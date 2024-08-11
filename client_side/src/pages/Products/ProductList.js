@@ -1,11 +1,11 @@
-// import Spinner from "@/Components/Spinner";
 import React, { useEffect, useState } from "react";
-import { PiHeartLight } from "react-icons/pi";
+import { PiHeartLight, PiHeartFill } from "react-icons/pi";
 import Spinner from "../Components/Spinner";
 
 const ProductList = ({ isSidebarOpen }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [likedProducts, setLikedProducts] = useState(new Set());
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -31,9 +31,24 @@ const ProductList = ({ isSidebarOpen }) => {
     return title.split(" ").slice(0, 2).join(" ") + "...";
   };
 
+  const handleLikeClick = (productId) => {
+    setLikedProducts((prev) => {
+      const updatedLikes = new Set(prev);
+      if (updatedLikes.has(productId)) {
+        updatedLikes.delete(productId);
+      } else {
+        updatedLikes.add(productId);
+      }
+      return updatedLikes;
+    });
+  };
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center " style={{marginLeft:'40rem'}}>
+      <div
+        className="flex items-center justify-center "
+        style={{ marginLeft: "40rem" }}
+      >
         <Spinner />
       </div>
     );
@@ -47,17 +62,16 @@ const ProductList = ({ isSidebarOpen }) => {
           : "grid-cols-2 sm:grid-cols-4"
       }`}
     >
-      {/* */}
       {products.map((product) => (
         <div
           key={product.id}
-          className="shadow-md  h-ProductCardHeight lg:w-fullscreenWidth sm:w-SmallScrrenWidth"
+          className="shadow-sm h-ProductCardHeight lg:w-fullscreenWidth sm:w-SmallScrrenWidth"
         >
           <div className="bg-ProductImageBackGround">
             <img
               src={product.image}
               alt={product.title}
-              className="h-Imageheight w-full object-contain mb-4 p-2"
+              className="h-Imageheight w-full object-contain mb-4 p-4 sm:p-6"
               style={{ mixBlendMode: "darken" }}
             />
           </div>
@@ -70,7 +84,17 @@ const ProductList = ({ isSidebarOpen }) => {
               <p className="text-gray-700 text-sm">
                 {DescriptionLimit(product.description)}
               </p>
-              <PiHeartLight className="h-5 w-5" />
+              {likedProducts.has(product.id) ? (
+                <PiHeartFill
+                  onClick={() => handleLikeClick(product.id)}
+                  className="h-5 w-5 cursor-pointer text-red-500"
+                />
+              ) : (
+                <PiHeartLight
+                  onClick={() => handleLikeClick(product.id)}
+                  className="h-5 w-5 cursor-pointer text-gray-500"
+                />
+              )}
             </div>
           </div>
         </div>
