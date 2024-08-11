@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
-
+//
 const FilterNavbar = ({ onToggleSidebar, isSidebarOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSection = () => {
