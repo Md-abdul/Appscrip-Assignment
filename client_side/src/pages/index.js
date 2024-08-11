@@ -4,6 +4,7 @@ import Sidebar from "@/pages/Products/Sidebar";
 import FilterNavbar from "@/Components/FilterNavbar";
 import ProductList from "./Products/ProductList";
 import Footer from "@/Components/Footer";
+import Navbar from "@/Components/Navbar";
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,6 +13,7 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       <TitleSection />
       <div className="relative">
         <FilterNavbar
@@ -31,7 +33,6 @@ export default function Home() {
           </main>
         </div>
       </div>
-
       <Footer />
     </>
   );
