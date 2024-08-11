@@ -1,6 +1,7 @@
-import Spinner from "@/Components/Spinner";
+// import Spinner from "@/Components/Spinner";
 import React, { useEffect, useState } from "react";
 import { PiHeartLight } from "react-icons/pi";
+import Spinner from "../Components/Spinner";
 
 const ProductList = ({ isSidebarOpen }) => {
   const [products, setProducts] = useState([]);

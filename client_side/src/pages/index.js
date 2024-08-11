@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import TitleSection from "@/Components/TitleSection";
-import Sidebar from "@/pages/Products/Sidebar";
-import FilterNavbar from "@/Components/FilterNavbar";
+import Navbar from "./Components/Navbar";
+import TitleSection from "./Components/TitleSection";
+import FilterNavbar from "./Components/FilterNavbar";
+import Sidebar from "./Products/Sidebar";
 import ProductList from "./Products/ProductList";
-import Footer from "@/Components/Footer";
-import Navbar from "@/Components/Navbar";
+import Footer from "./Components/Footer";
+// import TitleSection from "@/Components/TitleSection";
+// import Sidebar from "@/pages/Products/Sidebar";
+// import FilterNavbar from "@/Components/FilterNavbar";
+// import ProductList from "./Products/ProductList";
+// import Footer from "@/Components/Footer";
+// import Navbar from "@/Components/Navbar";
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

@@ -3,8 +3,8 @@ import { PiHeartLight, PiHandbagLight } from "react-icons/pi";
 import { HiOutlineUser } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
-import subNavbarLogo from "../assets/subNavlog.png"
-import Logo from "../assets/Logo.png";
+import subNavbarLogo from "../../assets/subNavlog.png"
+import Logo from "../../assets/Logo.png";
 import Image from "next/image";
 export default function Navbar() {
   return (
