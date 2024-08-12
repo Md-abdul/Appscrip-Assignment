@@ -4,10 +4,10 @@ const TitleSection = () => {
   return (
     <>
       <div className="text-center px-4 sm:px-6 md:px-12 lg:px-24">
-        <h1 className="font-textfont text-2xl sm:text-thirdSetoftext md:text-secondsetofText lg:text-textSize font-normal leading-tight sm:leading-subHeadingLineHeight md:leading-customLineHeight tracking-customLetterSpacing mt-8 sm:mt-12 md:mt-16 base:font-bold">
+        <h1 className="font-textfont text-xl sm:text-xl md:text-3xl lg:text-5xl leading-tight tracking-normal mt-16 sm:mt-12 md:mt-16">
           DISCOVER OUR PRODUCTS
         </h1>
-        <p className="mt-4 sm:mt-5 md:mt-6 font-textfont text-sm sm:text-base md:text-subHeadingSize leading-normal sm:leading-relaxed md:leading-subHeadingLineHeight font-extralight">
+        <p className="mt-4 sm:mt-5 md:mt-6 font-textfont text-sm sm:text-base md:text-lg leading-normal sm:leading-relaxed md:leading-relaxed font-extralight">
           Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
           <span className="hidden md:inline">
             {" "}

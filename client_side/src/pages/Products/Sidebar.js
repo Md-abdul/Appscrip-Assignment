@@ -62,12 +62,10 @@ const Sidebar = ({ isOpen }) => {
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="p-4 base:hidden">
+      <div className="p-4 hidden lg:block">
         <div className="flex items-center mt-5">
           <input type="checkbox" className="h-6 w-6" />
-          <h1 className="text-2xl font-bold ml-3 base:hidden lg:visible">
-            CUSTOMIZABLE
-          </h1>
+          <h1 className="text-2xl font-bold ml-3">CUSTOMIZABLE</h1>
         </div>
         <hr className="h-px my-4 bg-horizontalLineColor border-1 mx-auto w-full" />
       </div>
