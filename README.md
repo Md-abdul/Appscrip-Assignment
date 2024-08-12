@@ -23,7 +23,7 @@ This project is a fully responsive landing page built with Next.js and styled us
 - **Version Control**: [Git](https://git-scm.com/) and [GitHub](https://github.com/)
 
 
-# 🗂️ Folder Structure
+## 🗂️ Folder Structure
 
 
     ├── public
