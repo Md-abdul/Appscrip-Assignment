@@ -1,0 +1,105 @@
+.sidebar {
+  position: absolute;
+  top: 80px;
+  left: 6rem;
+  width: 20%;
+  padding: 0 10px;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+  /* border: 1px solid; */
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.closed {
+  transform: translateX(-100%);
+}
+
+.sidebarSection {
+  padding: 16px;
+}
+
+.customizable {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.customizableTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 12px;
+}
+
+.checkbox {
+  height: 24px;
+  width: 24px;
+}
+
+.separator {
+  height: 1px;
+  margin: 16px auto;
+  background-color: #ccc;
+  border: none;
+  width: 100%;
+}
+
+.section {
+  padding: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.sectionSubtitle {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.toggleButton {
+  padding: 4px;
+}
+
+.icon {
+  font-size: 1.25rem;
+  margin-top: -16px;
+}
+
+.items {
+  margin-top: 16px;
+}
+
+.unselectAll {
+  color: #888;
+  text-decoration: underline;
+  margin-bottom: 16px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.itemCheckbox {
+  margin-right: 8px;
+  height: 20px;
+  width: 20px;
+}
+
+.itemText {
+  font-size: 1rem;
+  color: #333;
+}

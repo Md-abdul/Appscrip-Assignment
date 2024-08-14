@@ -1,0 +1,105 @@
+.footerContainer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 5rem;
+}
+
+.footerGrid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footerColumn {
+  width: 50%;
+}
+
+.footerHeading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.footerSubHeading {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footerInputContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.footerInput {
+  padding: 0.5rem;
+  width: 70%;
+  color: #000;
+}
+
+.subscribeButton {
+  background: transparent;
+  border: 2px solid #888;
+  color: #888;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.hr {
+  border-color: #888;
+  margin: 1.5rem 0;
+}
+
+.dropdownButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.paymentIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.paymentIcon {
+  width: 2.8rem;
+  height: 1.8rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.socialIcon {
+  border: 1px solid #888;
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+.copyrightText {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #888;
+  margin-top: 10px;
+}
+
+.footerPaymentIcons {
+  margin-top: 2rem;
+}
+
+@media (max-width: 767px) {
+  .footerGrid {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .footerInputContainer input {
+    width: 10rem;
+  }
+}

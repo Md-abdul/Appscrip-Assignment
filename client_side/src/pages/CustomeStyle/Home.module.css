@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.main {
+  padding-top: 16px;
+  transition: all 0.5s ease-in-out;
+}
+
+ .sidebarOpen {
+  margin-left: 256px; 
+ }
+
+.sidebarClosed {
+  margin-left: 0; 
+}

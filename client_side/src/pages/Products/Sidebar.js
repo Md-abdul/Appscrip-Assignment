@@ -1,51 +1,54 @@
 import React, { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import styles from "../CustomeStyle/Sidebar.module.css";
 
-const Section = ({ title, items }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSection = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Section = ({ title, items, index, openSections, toggleSection }) => {
   return (
-    <>
-      <div className="p-4">
-        <div
-          className="flex justify-between items-center cursor-pointer"
-          onClick={toggleSection}
-        >
-          <div>
-            <h2 className="text-xl font-bold">{title}</h2>
-            <p className="text-subHeadingSize mt-3">All</p>
-          </div>
-          <button className="p-1">
-            {isOpen ? (
-              <IoIosArrowUp className="text-xl -mt-8" />
-            ) : (
-              <IoIosArrowDown className="text-xl -mt-8" />
-            )}
-          </button>
+    <div className={styles.section}>
+      <div
+        className={styles.sectionHeader}
+        onClick={() => toggleSection(index)}
+      >
+        <div>
+          <h2 className={styles.sectionTitle}>{title}</h2>
+          <p className={styles.sectionSubtitle}>All</p>
         </div>
-        {isOpen && (
-          <div className="mt-4">
-            <p className="text-filterTextColor underline mb-4">Unselect all</p>
-            {items.map((item, index) => (
-              <label key={index} className="flex items-center mb-2">
-                <input type="checkbox" className="mr-2 h-5 w-5" />
-                <span className="text-CheckBoxText">{item}</span>
-              </label>
-            ))}
-          </div>
-        )}
-
-        <hr className="h-px my-4 bg-horizontalLineColor border-1 mx-auto w-full" />
+        <button className={styles.toggleButton}>
+          {openSections[index] ? (
+            <IoIosArrowUp className={styles.icon} />
+          ) : (
+            <IoIosArrowDown className={styles.icon} />
+          )}
+        </button>
       </div>
-    </>
+      {openSections[index] && (
+        <div className={styles.items}>
+          <p className={styles.unselectAll}>Unselect all</p>
+          {items.map((item, itemIndex) => (
+            <label key={itemIndex} className={styles.item}>
+              <input type="checkbox" className={styles.itemCheckbox} />
+              <span className={styles.itemText}>{item}</span>
+            </label>
+          ))}
+        </div>
+      )}
+      <hr className={styles.separator} />
+    </div>
   );
 };
 
 const Sidebar = ({ isOpen }) => {
+  const [openSections, setOpenSections] = useState({});
+
+  const toggleSection = (index) => {
+    setOpenSections((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
+
+  if (!isOpen) return null;
+
   const sections = [
     { title: "IDEAL FOR", items: ["Men", "Women", "Baby & Kid"] },
     { title: "OCCASION", items: ["Casual", "Formal", "Party"] },
@@ -58,20 +61,25 @@ const Sidebar = ({ isOpen }) => {
 
   return (
     <div
-      className={`absolute top-20 left-0 w-1/3 px-32 h-full transition-transform duration-200 transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}
     >
-      <div className="p-4 hidden lg:block">
-        <div className="flex items-center mt-5">
-          <input type="checkbox" className="h-6 w-6" />
-          <h1 className="text-2xl font-bold ml-3">CUSTOMIZABLE</h1>
+      <div className={styles.sidebarSection}>
+        <div className={styles.customizable}>
+          <input type="checkbox" className={styles.checkbox} />
+          <h1 className={styles.customizableTitle}>CUSTOMIZABLE</h1>
         </div>
-        <hr className="h-px my-4 bg-horizontalLineColor border-1 mx-auto w-full" />
+        <hr className={styles.separator} />
       </div>
 
       {sections.map((section, index) => (
-        <Section key={index} title={section.title} items={section.items} />
+        <Section
+          key={index}
+          index={index}
+          title={section.title}
+          items={section.items}
+          openSections={openSections}
+          toggleSection={toggleSection}
+        />
       ))}
     </div>
   );

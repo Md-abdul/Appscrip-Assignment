@@ -5,12 +5,7 @@ import FilterNavbar from "./Components/FilterNavbar";
 import Sidebar from "./Products/Sidebar";
 import ProductList from "./Products/ProductList";
 import Footer from "./Components/Footer";
-// import TitleSection from "@/Components/TitleSection";
-// import Sidebar from "@/pages/Products/Sidebar";
-// import FilterNavbar from "@/Components/FilterNavbar";
-// import ProductList from "./Products/ProductList";
-// import Footer from "@/Components/Footer";
-// import Navbar from "@/Components/Navbar";
+import styles from "./CustomeStyle/Home.module.css";
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -21,19 +16,19 @@ export default function Home() {
     <>
       <Navbar />
       <TitleSection />
-      <div className="relative">
+      <div className={styles.container}>
         <FilterNavbar
           onToggleSidebar={toggleSidebar}
           isSidebarOpen={isSidebarOpen}
         />
 
-        <div className="flex">
+        <div className={styles.flexContainer}>
           <Sidebar isOpen={isSidebarOpen} />
 
           <main
-            className={`pt-16 ${
-              isSidebarOpen ? "ml-64" : "ml-0"
-            } p-4 transition-all duration-500`}
+            className={`${styles.main} ${
+              isSidebarOpen ? styles.sidebarOpen : styles.sidebarClosed
+            }`}
           >
             <ProductList isSidebarOpen={isSidebarOpen} />
           </main>

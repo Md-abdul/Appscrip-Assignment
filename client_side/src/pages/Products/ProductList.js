@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PiHeartLight, PiHeartFill } from "react-icons/pi";
 import Spinner from "../Components/Spinner";
+import styles from "../CustomeStyle/ProductList.module.css";
 
 const ProductList = ({ isSidebarOpen }) => {
   const [products, setProducts] = useState([]);
@@ -45,10 +46,7 @@ const ProductList = ({ isSidebarOpen }) => {
 
   if (loading) {
     return (
-      <div
-        className="flex items-center justify-center "
-        style={{ marginLeft: "40rem" }}
-      >
+      <div className={styles.spinnerContainer}>
         <Spinner />
       </div>
     );
@@ -56,43 +54,37 @@ const ProductList = ({ isSidebarOpen }) => {
 
   return (
     <div
-      className={`grid gap-6 px-4 md:px-8 lg:px-32 ${
-        isSidebarOpen
-          ? "grid-cols-2 sm:grid-cols-3"
-          : "grid-cols-2 sm:grid-cols-4"
+      className={`${styles.productListContainer} ${
+        isSidebarOpen ? styles.gridThreeColumns : styles.gridFourColumns
       }`}
     >
       {products.map((product) => (
-        <div
-          key={product.id}
-          className="shadow-sm h-ProductCardHeight lg:w-fullscreenWidth sm:w-SmallScrrenWidth"
-        >
-          <div className="bg-ProductImageBackGround">
+        <div key={product.id} className={styles.productCard}>
+          <div className={styles.productImageContainer}>
             <img
               src={product.image}
               alt={product.title}
-              className="h-Imageheight w-full object-contain mb-4 p-4 sm:p-6"
-              style={{ mixBlendMode: "darken" }}
+              className={styles.productImage}
             />
           </div>
 
-          <div className="mt-4 px-2">
-            <h2 className="text-lg font-semibold mb-2 truncate">
+          <div className={styles.productDetails}>
+            <h2 className={styles.productTitle}>
               {ProductNameLimit(product.title)}
             </h2>
             <div className="flex items-center justify-between">
-              <p className="text-gray-700 text-sm">
+              <p className={styles.productDescription}>
                 {DescriptionLimit(product.description)}
               </p>
               {likedProducts.has(product.id) ? (
                 <PiHeartFill
                   onClick={() => handleLikeClick(product.id)}
-                  className="h-5 w-5 cursor-pointer text-red-500"
+                  className={`${styles.likeIcon} ${styles.likeIconFilled}`}
                 />
               ) : (
                 <PiHeartLight
                   onClick={() => handleLikeClick(product.id)}
-                  className="h-5 w-5 cursor-pointer text-gray-500"
+                  className={`${styles.likeIcon} ${styles.likeIconEmpty}`}
                 />
               )}
             </div>

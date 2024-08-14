@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { PiHeartLight, PiHandbagLight } from "react-icons/pi";
-import { HiOutlineUser } from "react-icons/hi2";
+import { HiOutlineUser } from "react-icons/hi";
 import { IoIosArrowDown } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io"; 
+import { IoMdClose } from "react-icons/io";
 import subNavbarLogo from "../../assets/subNavlog.png";
 import Logo from "../../assets/Logo.png";
 import Image from "next/image";
+import styles from "../CustomeStyle/Navbar.module.css"; 
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,91 +18,85 @@ export default function Navbar() {
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-white">
-      <div className="bg-FooterBackgroundColor flex items-center justify-center py-2 lg:items-center justify-evenly sticky top-0 z-10">
-        <div className="flex items-center space-x-1">
+    <div className={styles.navbarContainer}>
+      <div className={styles.subNavbar}>
+        <div className={styles.subNavItem}>
           <Image src={subNavbarLogo} alt="SubNavbarLogo" />
-          <h1 className="text-subNavbarTxtColor">Lorem ipsum dolor</h1>
+          <h1 className={styles.subNavText}>Lorem ipsum dolor</h1>
         </div>
-        <div className="hidden md:flex items-center space-x-1">
+        <div className={`${styles.subNavItem} ${styles.hideOnDesktop}`}>
           <Image src={subNavbarLogo} alt="SubNavbarLogo" />
-          <h1 className="text-subNavbarTxtColor">Lorem ipsum dolor</h1>
+          <h1 className={styles.subNavText}>Lorem ipsum dolor</h1>
         </div>
-        <div className="hidden md:flex items-center space-x-1">
+        <div className={`${styles.subNavItem} ${styles.hideOnDesktop}`}>
           <Image src={subNavbarLogo} alt="SubNavbarLogo" />
-          <h1 className="text-subNavbarTxtColor">Lorem ipsum dolor</h1>
+          <h1 className={styles.subNavText}>Lorem ipsum dolor</h1>
         </div>
       </div>
 
-      <nav className="text-black px-4 md:px-20 mt-8">
-        <div className="container mx-auto flex items-center justify-between relative">
-          <div className="flex items-center space-x-4">
+      <nav className={styles.navbar}>
+        <div className={styles.navbarContent}>
+          <div className={styles.logoMenu}>
             <GiHamburgerMenu
-              className="h-6 w-6 md:hidden"
-              cursor="pointer"
+              className={`${styles.hamburgerIcon} ${styles.showOnMobile}`}
               onClick={toggleMenu}
             />
             <Image src={Logo} alt="Logo" />
           </div>
 
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <h1 className="text-2xl font-bold">Logo</h1>
+          <div className={styles.centerLogo}>
+            <h1 className={styles.logoText}>Logo</h1>
           </div>
 
-          <div className="flex items-center space-x-4 md:space-x-6">
-            <CiSearch className="h-6 w-6 cursor-pointer" />
-            <PiHeartLight className="h-6 w-6 cursor-pointer" />
-            <PiHandbagLight className="h-6 w-6 cursor-pointer" />
-            <HiOutlineUser className="h-6 w-6 cursor-pointer hidden md:block" />
-            <div className="flex items-center space-x-1 hidden md:flex">
-              <h1 className="cursor-pointer font-bold">ENG</h1>
-              <IoIosArrowDown className="h-4 w-4 cursor-pointer" />
+          <div className={styles.navIcons}>
+            <CiSearch className={styles.navIcon} />
+            <PiHeartLight className={styles.navIcon} />
+            <PiHandbagLight className={styles.navIcon} />
+            <HiOutlineUser
+              className={`${styles.navIcon} ${styles.hideOnMobile}`}
+            />
+            <div className={`${styles.languageToggle} ${styles.hideOnMobile}`}>
+              <h1 className={`${styles.languageText} ${styles.hideOnMobile}`}>
+                ENG
+              </h1>
+              <IoIosArrowDown
+                className={`${styles.arrowIcon} ${styles.hideOnMobile}`}
+              />
             </div>
           </div>
         </div>
       </nav>
 
-     
       {isMenuOpen && (
-        <div className="md:hidden absolute top-0 left-0 w-full h-96 bg-white z-50">
-          <div className="flex items-center justify-between px-4 py-4 border-b">
-            {/* <Image src={Logo} alt="Logo" /> */}
-            <IoMdClose
-              className="h-6 w-6 cursor-pointer"
-              onClick={toggleMenu}
-            />
+        <div className={styles.mobileMenu}>
+          <div className={styles.mobileMenuHeader}>
+            <IoMdClose className={styles.closeIcon} onClick={toggleMenu} />
           </div>
-          <div className="mt-10 flex flex-col items-center space-y-6">
-            <h1 className="cursor-pointer font-textfont font-bold">HOME</h1>
-            <h1 className="cursor-pointer font-textfont font-bold">SHOP</h1>
-            <h1 className="cursor-pointer font-textfont font-bold">SKILLS</h1>
-            <h1 className="cursor-pointer font-textfont font-bold">STORIES</h1>
-            <h1 className="cursor-pointer font-textfont font-bold">ABOUT</h1>
-            <h1 className="cursor-pointer font-textfont font-bold">
-              CONTACT US
-            </h1>
+          <div className={styles.mobileMenuContent}>
+            <h1 className={styles.menuItem}>HOME</h1>
+            <h1 className={styles.menuItem}>SHOP</h1>
+            <h1 className={styles.menuItem}>SKILLS</h1>
+            <h1 className={styles.menuItem}>STORIES</h1>
+            <h1 className={styles.menuItem}>ABOUT</h1>
+            <h1 className={styles.menuItem}>CONTACT US</h1>
           </div>
         </div>
       )}
 
-      <div className="mt-10">
-        <div className="hidden md:flex justify-center space-x-4 md:space-x-10">
-          <h1 className="cursor-pointer font-textfont font-bold">HOME</h1>
-          <h1 className="cursor-pointer font-textfont font-bold">SHOP</h1>
-          <h1 className="cursor-pointer font-textfont font-bold">SKILLS</h1>
-          <h1 className="cursor-pointer font-textfont font-bold">STORIES</h1>
-          <h1 className="cursor-pointer font-textfont font-bold">ABOUT</h1>
-          <h1 className="cursor-pointer font-textfont font-bold">CONTACT US</h1>
-        </div>
+      <div className={`${styles.desktopMenu} ${styles.hideOnMobile}`}>
+        <h1 className={styles.menuItem}>HOME</h1>
+        <h1 className={styles.menuItem}>SHOP</h1>
+        <h1 className={styles.menuItem}>SKILLS</h1>
+        <h1 className={styles.menuItem}>STORIES</h1>
+        <h1 className={styles.menuItem}>ABOUT</h1>
+        <h1 className={styles.menuItem}>CONTACT US</h1>
       </div>
 
-      <hr className="h-px my-4 bg-horizontalLineColor border-1"></hr>
+      <hr className={styles.horizontalLine} />
 
-      <div className="flex justify-start space-x-1 md:hidden p-2">
-        <h1 className="cursor-pointer font-textfont font-bold text-gray-400">
-          HOME |
-        </h1>
-        <h1 className="cursor-pointer font-textfont font-bold">SHOP</h1>
+      <div className={` ${styles.showOnMobile}`}>
+        <h1 className={styles.subMenuItem}>HOME |</h1>
+        <h1 className={styles.subMenuItem}>SHOP</h1>
       </div>
     </div>
   );

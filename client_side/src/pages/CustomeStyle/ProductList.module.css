@@ -1,0 +1,129 @@
+.productListContainer {
+  display: grid;
+  gap: 1rem;
+  padding-left: 7rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.gridTwoColumns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gridThreeColumns {
+  grid-template-columns: repeat(3, 1fr);
+  padding-left: 10rem;
+}
+
+.gridFourColumns {
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: 8rem;
+}
+
+.productCard {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.3s ease;
+  max-width: 300px;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+}
+
+.productImageContainer {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImage {
+  height: 200px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  mix-blend-mode: darken;
+  margin-bottom: 1rem;
+}
+
+.productDetails {
+  margin-top: 1rem;
+  padding: 0 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.productTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productDescription {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-right: 1rem;
+}
+
+.likeIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+  cursor: pointer;
+}
+
+.likeIconFilled {
+  color: #e02424;
+}
+
+.likeIconEmpty {
+  color: #6b7280;
+}
+
+.spinnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 45rem;
+}
+
+@media (min-width: 1024px) {
+  .gridFourColumns {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .productListContainer {
+    margin-left: -3rem;
+    padding-left: 3rem;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .productCard {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+
+  .productImage {
+    height: 150px;
+    width: 200px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .productDetails {
+    padding: 0 0.5rem;
+  }
+
+  .productTitle {
+    font-size: 1.1rem;
+  }
+
+  .productDescription {
+    font-size: 0.9rem;
+  }
+}
