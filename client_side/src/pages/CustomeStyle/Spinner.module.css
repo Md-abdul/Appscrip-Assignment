@@ -1,0 +1,41 @@
+.spinnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.spinnerWrapper {
+  position: relative;
+}
+
+.spinnerOuter {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  border-top-width: 8px;
+  border-bottom-width: 8px;
+  border-color: #e5e7eb;
+}
+
+.spinnerInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  border-top-width: 8px;
+  border-bottom-width: 8px;
+  border-color: #3b82f6;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
